@@ -1,4 +1,4 @@
-# 翠猫翻译 · Cuimao Translator
+# 萃猫翻译 · Cuimao Translator
 
 > 一键将英文 PDF 书籍翻译为地道中文的 Claude Code 技能。
 
