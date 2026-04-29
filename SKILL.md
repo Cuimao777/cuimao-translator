@@ -1,5 +1,5 @@
 ---
-name: pdf-translator
+name: cuimao-translator
 description: Translate English PDF books into natural Chinese with three quality modes. Preserves original meaning sentence-by-sentence while producing fluent Chinese prose. Use this skill whenever the user wants to translate a PDF book, convert English books to Chinese, localize English content into Chinese, or mentions "翻译", "汉化", "英译中", "PDF翻译", "精翻", "速译" in the context of PDF or document translation. Also triggers for "translate this book", "帮我翻译这本", "汉化这个PDF", or any task where English PDF content needs to become natural Chinese text.
 ---
 

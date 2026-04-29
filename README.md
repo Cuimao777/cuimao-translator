@@ -1,41 +1,119 @@
-# PDF Translator Skill for Claude Code
+# 翠猫翻译 · Cuimao Translator
 
-一键将英文PDF书籍翻译为流畅中文的Claude Code技能，支持三种翻译模式（速译/标准/精翻），五种风格预设。
+> 一键将英文 PDF 书籍翻译为地道中文的 Claude Code 技能。
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-orange)](https://claude.ai/code)
+
+---
+
+## 为什么用翠猫翻译？
+
+大多数 AI 翻译生硬、欧化、一眼就能看出是机翻。**翠猫翻译**专为书籍级长文本设计，核心承诺是**逐句忠实，读起来却像中文作者亲笔所写**。
+
+- ✅ 零增译、零漏译——每句原文都有对应译文
+- ✅ 自动检测并修正"被字泛滥""的的不绝""之一成灾"等欧化中文通病
+- ✅ 内置 100+ 常用术语表，全书术语一致
+- ✅ 三种模式适配不同场景，从快速浏览到出版精翻
+- ✅ 五种风格预设，覆盖小说、学术、技术文档、散文等
 
 ## 一键安装
 
 ```bash
-git clone https://github.com/Cuimao777/pdf-translator-skill.git ~/.claude/skills/pdf-translator
+git clone https://github.com/Cuimao777/cuimao-translator.git ~/.claude/skills/cuimao-translator
 ```
 
-或者安装到指定项目：
-
-```bash
-git clone https://github.com/YOUR_USERNAME/pdf-translator-skill.git /path/to/project/.claude/skills/pdf-translator
-```
-
-安装后在Claude Code中直接说"翻译这个PDF"即可触发。
+安装后重启 Claude Code，直接说「翻译这个 PDF」即可自动激活。
 
 ## 触发词
 
-`翻译` `汉化` `英译中` `PDF翻译` `精翻` `速译` `translate this book`
+| 类别 | 触发词 |
+|------|--------|
+| 通用 | `翻译` `汉化` `英译中` `translate` |
+| 格式 | `PDF翻译` `翻译这本书` `汉化这个PDF` |
+| 模式 | `速译` / `快翻` → Quick 模式 |
+| 模式 | `精翻` / `精细翻译` / `出版级` → Refined 模式 |
 
-## 三种模式
+## 三种翻译模式
 
-| 模式 | 触发词 | 适合场景 |
-|------|--------|----------|
-| Quick 速译 | 快翻、速译 | 快速浏览、短篇内容 |
-| Normal 标准 | 默认、翻译 | 大多数章节、博客、通用内容 |
-| Refined 精翻 | 精翻、精细翻译 | 出版级输出、最终交付 |
+| 模式 | 触发词 | 流程 | 适用场景 |
+|------|--------|------|----------|
+| ⚡ **Quick 速译** | `快翻` `速译` | 读取 → 直接翻译 | 快速浏览内容、短篇片段 |
+| 📖 **Normal 标准** | 默认、`翻译` | 分析 → 翻译 | 大多数书籍章节、博客、通用内容 |
+| 💎 **Refined 精翻** | `精翻` `精细翻译` | 分析 → 初译 → 审校 → 修订 → 润色 | 出版级输出、关键章节、最终交付 |
 
-## 五种风格
+标准模式完成后可随时升级：回复 `继续润色` 或 `refine` 即进入精翻流程。
 
-- `storytelling` 叙事流畅 — 小说、回忆录、叙事非虚构
-- `academic` 学术严谨 — 学术著作、教科书
-- `literal` 逐句忠实 — 技术手册、法律文件
-- `elegant` 文采典雅 — 文学小说、诗歌
-- `conversational` 口语自然 — 对话密集、自助类书籍
+## 五种风格预设
 
-## 核心原则
+| 风格 | 适用 | 特点 |
+|------|------|------|
+| 📝 `storytelling` 叙事流畅 | 小说、传记、叙事非虚构 | 过渡自然、语言生动、中文节奏 |
+| 🎓 `academic` 学术严谨 | 学术著作、教科书、研究报告 | 正式语域、术语精确、引文规范 |
+| ⚙️ `literal` 逐句忠实 | 技术手册、法律文件、合同 | 贴近原文结构、最小改写 |
+| ✨ `elegant` 文采典雅 | 文学小说、诗歌、散文 | 四字格运用、音韵美感、留白 |
+| 💬 `conversational` 口语自然 | 对话密集、自助书籍、回忆录 | 轻松亲近、像在跟读者聊天 |
 
-信（忠实原文）→ 达（中文流畅）→ 雅（文化适配）
+如未指定，会根据书籍内容自动判断。对大多数书籍，`storytelling` 是最安全的选择。
+
+## 翻译哲学
+
+```
+信 → 达 → 雅
+（忠实）→（流畅）→（文化适配）
+```
+
+### 信 — 忠实
+- 每句英文必有对应中文
+- 事实、数字、逻辑、专名完全一致
+- 不概括、不跳过、不添油加醋
+
+### 达 — 流畅
+- 中文读起来**不像翻译的**
+- 按中文话题-评论结构重组语序
+- 拆长句为 7-15 字的自然意群
+- 主动优于被动，补语优于状语
+
+### 雅 — 文化适配
+- 英文成语、俚语、文化梗 → 找到中文等值表达
+- 双关语无法翻译时 → 译意并标注
+- 中国读者不了解的引用 → 加简短译注
+
+## 欧化中文六重检测
+
+翻译完成后自动自查以下六种"翻译腔"通病：
+
+| # | 问题 | 示例 |
+|---|------|------|
+| 1 | 被字句泛滥 | "He was praised" → `他受到了表扬`，而非 `他被表扬了` |
+| 2 | 连接词堆砌 | 去掉多余的「因为…所以…」「虽然…但是…」 |
+| 3 | 定语过长 | 英文长定语 → 拆成多个短句 |
+| 4 | 之一滥用 | "one of the most…" → `极其…`，不一定总用 `…之一` |
+| 5 | 的的的 | 一句中出现 ≥3 个「的」就重构 |
+| 6 | 名词化过度 | "the implementation of…" → `实施…`（动词），而非 `…的实施` |
+
+## 使用示例
+
+**输入**（英文 PDF 段落）：
+
+> The old man had taught the boy to fish and the boy loved him. He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty-four days now without taking a fish.
+
+**输出**（storytelling 风格）：
+
+> 老头儿教过那孩子打鱼，孩子也爱他。他是个独自在湾流里的一只小船上打鱼的老头儿，如今已经接连八十四天一条鱼也没打着了。
+
+## 文件结构
+
+```
+cuimao-translator/
+├── SKILL.md                          # 技能主文件
+├── README.md                         # 本文件
+└── references/
+    ├── glossary-en-zh.md             # 100+ 术语英中对照表
+    ├── translation-guide.md          # 句子转换模式、欧化中文诊断、各文体处理
+    └── refined-workflow.md           # 精翻五步流水线详细指南
+```
+
+## License
+
+MIT
