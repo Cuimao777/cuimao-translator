@@ -5,7 +5,7 @@
 ## 一键安装
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/pdf-translator-skill.git ~/.claude/skills/pdf-translator
+git clone https://github.com/Cuimao777/pdf-translator-skill.git ~/.claude/skills/pdf-translator
 ```
 
 或者安装到指定项目：
